@@ -1,0 +1,35 @@
+{
+  "name": "stratum-reader",
+  "version": "1.0.0",
+  "description": "Reads data from stratum proxy and sends to AMQP exchange",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maprox/stratum-reader.git"
+  },
+  "keywords": [
+    "stratum",
+    "proxy",
+    "reader",
+    "rabbitmq",
+    "amqp"
+  ],
+  "author": "aintsay",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maprox/stratum-reader/issues"
+  },
+  "homepage": "https://github.com/maprox/stratum-reader#readme",
+  "dependencies": {
+    "amqplib": "^0.5.2",
+    "loglevel": "^1.6.1",
+    "loglevel-plugin-prefix": "^0.8.3",
+    "node-uuid": "^1.4.8",
+    "when": "^3.7.8",
+    "ws": "^5.2.0"
+  }
+}
