@@ -5,7 +5,7 @@ const config = require('./config');
 
 prefix.reg(log);
 prefix.apply(log, {
-    template: '[%t] %l:',
+    template: config.log.format,
     levelFormatter(level) {
         return level.toUpperCase();
     },

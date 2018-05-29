@@ -6,7 +6,8 @@ module.exports = {
         login: process.env.WEB_LOGIN
     },
     log: {
-        level: process.env.LOG_LEVEL || 'debug'
+        level: process.env.LOG_LEVEL || 'debug',
+        format: process.env.LOG_FORMAT || '[%t] %l:'
     },
     /**
      * AMQP connection string

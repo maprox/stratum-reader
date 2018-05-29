@@ -17,9 +17,7 @@ class Pool {
         }
 
         this.workers = workers || [];
-        this.remapWorkers();
-
-        return this;
+        return this.remapWorkers();
     }
 
     /**
@@ -31,8 +29,7 @@ class Pool {
                 return (oldWorker.id === newWorker.id) ? newWorker : oldWorker;
             });
         });
-
-        return this;
+        return this.remapWorkers();
     }
 
     remapWorkers() {
@@ -40,6 +37,7 @@ class Pool {
         this.getWorkers().forEach((worker) => {
             this.workersMap[worker.id] = worker;
         });
+        return this;
     }
 
     /**

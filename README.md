@@ -26,7 +26,9 @@ Reads data from stratum proxy and sends to AMQP exchange
 
 * **LOG_LEVEL** [*debug*] - Log level
 
-* **AMQP_EXCHANGE** [*proxy*] - exchange name in AMQP server.
+* **LOG_FORMAT** [*\[%t\] %l:*] - Log format
+
+* **AMQP_EXCHANGE** [*stratum*] - exchange name in AMQP server.
     All messages will be published to this exchange.
 
 * **AMQP_CONNECTION** [*amqp://guest:guest@127.0.0.1//*] - AMQP
