@@ -17,16 +17,22 @@ ws.on('message', onMessage);
 ws.on('error', onError);
 ws.on('close', onClose);
 
+let keepAliveInterval;
+
+const loginMessage = getLoginMessage();
+const keepAliveMessage = getKeepAliveMessage();
+
 function onOpen() {
     log.info('Connected.');
 
-    const message = new Message();
-    message.setContent('web:login', config.web.login);
 
-    const data = message.toString();
+    ws.send(loginMessage);
+    log.debug('>', loginMessage);
 
-    ws.send(data);
-    log.debug('>', data);
+    keepAliveInterval = setInterval(() => {
+        ws.send(keepAliveMessage);
+        log.debug('>', keepAliveMessage);
+    }, 25000);
 }
 
 function onMessage(data) {
@@ -40,4 +46,25 @@ function onError(error) {
 
 function onClose() {
     log.info('Disconnected.');
+
+    if (keepAliveInterval) {
+        clearInterval(keepAliveInterval);
+        keepAliveInterval = null;
+    }
+}
+
+/**
+ * @return {string}
+ */
+function getLoginMessage() {
+    const message = new Message();
+    message.setContent('web:login', config.web.login);
+    return message.toString();
+}
+
+/**
+ * @return {string}
+ */
+function getKeepAliveMessage() {
+    return '2';
 }
