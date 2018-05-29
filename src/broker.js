@@ -1,6 +1,6 @@
 const amqp = require('amqplib');
 const when = require('when');
-const uuid = require('node-uuid');
+const uuid = require('uuid');
 
 const config = require('./config');
 const log = require('./logger');

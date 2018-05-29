@@ -28,7 +28,7 @@
     "amqplib": "^0.5.2",
     "loglevel": "^1.6.1",
     "loglevel-plugin-prefix": "^0.8.3",
-    "node-uuid": "^1.4.8",
+    "uuid": "^3.2.1",
     "when": "^3.7.8",
     "ws": "^5.2.0"
   }
