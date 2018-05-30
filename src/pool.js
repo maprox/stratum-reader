@@ -25,9 +25,18 @@ class Pool {
      */
     updateWorkers(workers) {
         workers.forEach((newWorker) => {
+            let isNew = true;
             this.workers = this.workers.map((oldWorker) => {
-                return (oldWorker.id === newWorker.id) ? newWorker : oldWorker;
+                if (oldWorker.id === newWorker.id) {
+                    isNew = false;
+                    return newWorker;
+                } else {
+                    return oldWorker;
+                }
             });
+            if (isNew) {
+                this.workers.push(newWorker);
+            }
         });
         return this.remapWorkers();
     }
